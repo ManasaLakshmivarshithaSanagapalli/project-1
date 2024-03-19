@@ -1,0 +1,118 @@
+.Card_Division{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.Card_Outline{
+  width:350px;
+  display: flex;
+  flex-direction: column;
+  /* border:1px solid black; */
+  padding:15px;
+  margin-bottom:15px;
+  border-radius: 12px;
+  padding-bottom:30px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.Card_Outline:hover{
+  transform: scale(1.01);
+  box-shadow: none;
+  border:1px solid rgb(124, 104, 104)
+}
+.Company_logo_division{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Company_logo_division img{
+  width:200px;
+  height:100px;
+}
+.Company_name{
+  width:100%;
+  font-weight: 900;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+}
+.Description_heading{
+  width:100%;
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: underline;
+}
+.Description_points{
+  width:100%;
+}
+li{
+  text-align: justify;
+}
+.Package_heading{
+  width:100%;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+
+}
+.Package_applied_division{
+  display: flex;
+  width:100%;
+  justify-content: space-around;
+  /* border:1px solid black; */
+}
+.Package_division{
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+.Eligibility_Division{
+  width:100%;
+}
+.Eligibility_Heading{
+  width:100%;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: underline;
+
+}
+.Role_Division{
+  width:100%;
+}
+ #add
+{
+  /* border:1px solid black; */
+  display:block;
+  width:200px;
+
+}
+.My_division{
+  background-color:#2A3142 !important;
+}
+.CardText,.CardHeader{
+  color:white !important;
+}
+/* #apexchart
+{
+  height:400px;
+  width:100%;
+  border:1px solid red;
+}
+#online
+{
+  height:70px;
+  width:100%;
+  border:1px solid black;
+}
+#online h2{
+  margin:15px;
+} */
+/* .donutchartt{
+  display: flex;
+  align-items:flex-start;
+} */

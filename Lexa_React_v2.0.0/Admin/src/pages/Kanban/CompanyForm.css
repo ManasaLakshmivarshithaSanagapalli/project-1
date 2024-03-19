@@ -1,0 +1,71 @@
+.add-company-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .company-form {
+    display: flex;
+    flex-direction: column;
+    width: 70%; /* Adjust the width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .company-form label {
+    margin-bottom: 5px;
+  }
+  
+  .company-form input[type="text"],
+  .company-form textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .company-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .company-form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Styling for file input */
+  .company-form input[type="file"] {
+    margin-bottom: 10px;
+  }
+  
+  .add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #45a049;
+  }
+  @media screen and (max-width: 768px) {
+    .company-card {
+      flex-direction: column; /* Stack elements vertically on small screens */
+    }
+  
+    .company-logo {
+      margin-bottom: 20px;
+    }
+  }
