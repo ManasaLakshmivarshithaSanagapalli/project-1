@@ -1,43 +1,14 @@
-//FILENAME : companies.js
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose");
+const CompaniesSchema = new mongoose.Schema({
+  CompanyName: { type: String, required: true },
+  description: { type: String, required: true },
+  eligibility: { type: String, required: true },
+  packageoffered: { type: String, required: true },
+  applied: { type: String, required: true },
+  role: { type: String, required: true },
+  // logoUrl: { type: String, required: true },
+  // date: { type: Date, required: false }
+});
 
-const CompaniesSchema = mongoose.Schema({
-  logoUrl: {
-    type: String,
-    required: true
-  },
-  companyName: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: Array,
-    required: true
-  },
-  packageoffered: {
-    type: Number,
-    required: true
-  },
-  eligibility: {
-    type: Array,
-    required: true
-  },
-  role: {
-    type: String,
-    required: true
-  },
-  applied: {
-    type: Number,
-    required: true
-  },
-  // date:{
-  // type:String,
-  // required: true
-  // }
-}
-)
-
-// export model user with companiesSchema
-
-module.exports = mongoose.model("companies", CompaniesSchema);
+module.exports = mongoose.model('Company', CompaniesSchema);

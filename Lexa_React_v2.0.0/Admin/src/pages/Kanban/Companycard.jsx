@@ -1,129 +1,65 @@
-import React from "react";
-// import logourl from './aws_logo.png';
+import React from 'react';
+// import PropTypes from 'prop-types';
 
-const CompanyCard = (data) => {
-  console.log(data)
+// const CompanyCard = ({ logoUrl, CompanyName, description, packageoffered, applied, eligibility, role, date }) => {
+//   return (
+//     <div className="company-card">
+//       <img src={logoUrl} alt={`${CompanyName} logo`} />
+//       <h2>{CompanyName}</h2>
+//       <p>{description}</p> {/* Join description array */}
+//       <p>Package Offered: {packageoffered}</p>
+//       <p>Applied: {applied}</p>
+//       <p>Eligibility: {eligibility}</p> {/* Join eligibility array */}
+//       <p>Role: {role}</p>
+//       <p>Date: {date}</p>
+//     </div>
+//   );
+// };
+
+// CompanyCard.propTypes = {
+//   logoUrl: PropTypes.string.isRequired,
+//   CompanyName: PropTypes.string.isRequired,
+//   description: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   packageoffered: PropTypes.string.isRequired,
+//   applied: PropTypes.string.isRequired,
+//   eligibility: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   role: PropTypes.string.isRequired,
+//   date: PropTypes.string.isRequired
+// };
+
+// export default CompanyCard;
+// const CompanyCard = ({ logoUrl, CompanyName, description, packageoffered, applied, eligibility, role }) => {
+//   return (
+//       <div className="company-card">
+//           <h3>{CompanyName}</h3>
+//           <img src={logoUrl} alt={CompanyName} />
+//           <p>{description}</p>
+//           <p>Eligibility: {eligibility}</p>
+//           <p>Package Offered: {packageoffered}</p>
+//           <p>Applied: {applied}</p>
+//           <p>Role: {role}</p>
+//       </div>
+//   );
+// };
+
+// export default CompanyCard;
+
+const CompanyCard = ({ CompanyName, description, packageoffered, applied, eligibility, role }) => {
+  // const handleImageError = (e) => {
+  //   e.target.src = 'path/to/default/image.png'; // Replace with your default image path
+  // };
+
   return (
-    // <div className="company-card">
-    //   <div className="company-logo">
-    //     {/* <img src={logoUrl.pic} alt={companyName} /> */}
-    //     <img src={logoUrl} alt={companyName} /> 
-    //   </div>
-    //   <div className="company-details">
-    //     <h3>Company Name: <r>{companyName}</r> </h3>
-    //     <div className="dis">
-    //     <h3>Description</h3>
-    //         <ul>
-    //           <li>{description1}</li>
-    //           <li>{description2}</li>
-    //           {/* <li>{description3}</li> */}
-    //           {/* <li>{description4}</li> */}
-
-    //         </ul>
-    //         </div>
-
-    //         <h3>
-    //           Eligibility:</h3>
-    //           <ul>
-    //             <li>{dept}</li>
-    //             <li><b>Percentage:   </b>{per}</li>
-    //           </ul>
-    //           <div class="parent">
-    //             <div class="left">
-    //           <h3>
-    //           Package:</h3>
-    //            <p>{packageoffered}LPA    </p>
-    //            </div>
-    //            <div class="right">
-    //             <h3>Applied:</h3>
-    //             <p>{applied}</p>
-    //            </div>
-    //            </div>
-    //            <div className="another">
-    //         <h3>Role:</h3><p>{role}</p>
-    //         </div>
-
-    //   </div>
-    //   {/* <button>Add</button> */}
-    // </div>
-    <>
-      <div className="Card_Outline">
-        <div className="Company_logo_division">
-          <img src={data.logoUrl} alt="invalid Path" />
-        </div>
-        <div className="Company_name">
-          {data.CompanyName}
-        </div>
-        <div className="Description_heading">
-          Description
-        </div>
-        <div className="Description_points">
-          <ul>
-            {
-              data.description.map(ele => {
-                return <li>{ele}</li>
-              })
-            }
-          </ul>
-        </div>
-        <div className="Package_applied_division">
-          <div className="Package_division">
-            <div className="Package_heading">
-              Package
-            </div>
-            <div className="Package">
-              {
-                data.packageOffered
-              }&nbsp;&nbsp;LPA
-            </div>
-          </div>
-          <div className="Package_division">
-            <div className="Package_heading">
-              Registered
-            </div>
-            <div className="Package">
-              {
-                data.applied
-              }
-            </div>
-          </div>
-        </div>
-        <div className="Eligibility_Division">
-            <div className="Eligibility_Heading">
-                Eligibility
-            </div>
-          <ul>
-            {
-              data.eligibilty.map(ele => {
-                return <li>{ele}</li>
-              })
-            }
-          </ul>
-        </div>
-        <div className="Package_applied_division">
-          <div className="Package_division">
-            <div className="Package_heading">
-              Role Offered
-            </div>
-            <div className="Package">
-              {
-                data.role
-              }
-            </div>
-          </div>
-          <div className="Package_division">
-            <div className="Package_heading">
-              End Date To Apply
-            </div>
-            <div className="Package">
-              {data.date}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-
+    <div className="company-card">
+      <h3>{CompanyName}</h3>
+      {/* <img src={logoUrl} alt={CompanyName} onError={handleImageError} /> */}
+      <p><strong>Description:</strong> {description}</p>
+      <p><strong>Eligibility:</strong> {eligibility}</p>
+      <p><strong>Package Offered:</strong> {packageoffered}</p>
+      <p><strong>Applied:</strong> {applied}</p>
+      <p><strong>Role:</strong> {role}</p>
+    </div>
   );
 };
 
-export default CompanyCard;
+export default React.memo(CompanyCard);

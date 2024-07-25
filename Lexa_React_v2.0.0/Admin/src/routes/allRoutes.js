@@ -68,7 +68,7 @@ import FormEditors from "../pages/Forms/FormEditors"
 import FormValidations from "../pages/Forms/FormValidations"
 import FormUpload from "../pages/Forms/FormUpload"
 import FormXeditable from "../pages/Forms/FormXeditable"
-
+import AzureSentimentAnalysis from "components/apii/SentimentalAnalysis"
 //Ui
 import UiAlert from "../pages/Ui/UiAlert"
 import UiButtons from "../pages/Ui/UiButtons"
@@ -118,6 +118,9 @@ const userRoutes = [
   /////// Admindashboard
   { path:"/Admin-dashboard", component:<Admindashboard />},
   { path:"/User-dashboard", component:<UserDashboard />},
+
+
+  { path:"/SentimentAnalysis", component:<AzureSentimentAnalysis />},
 
 
   // //Email
@@ -193,7 +196,7 @@ const userRoutes = [
   {
     path: "/",
     exact: true,
-    component: <Navigate to="/dashboard" />,
+    component: <Navigate to="/login" />,
   },
 ]
 

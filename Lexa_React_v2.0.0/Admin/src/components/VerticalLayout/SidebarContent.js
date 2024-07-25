@@ -10,6 +10,7 @@ import withRouter from "components/Common/withRouter"
 import { Link } from "react-router-dom"
 
 //i18n
+import AzureSentimentAnalysis from "components/apii/SentimentalAnalysis"
 import { withTranslation } from "react-i18next"
 
 const SidebarContent = props => {
@@ -153,13 +154,14 @@ const SidebarContent = props => {
               <Link to="/Admin-dashboard" className="waves-effect">
                 <i className="mdi mdi-view-dashboard"></i>
                 {/* <span className="badge rounded-pill bg-primary float-end">2</span> */}
-                <span>{props.t("AdminDahboard")}</span>
+                <span>{props.t("CollegeProfile")}</span>
               </Link>
             </li>
              <li>
-              <Link to="/calendar" className=" waves-effect">
-                <i className="mdi mdi-calendar-check"></i>
-                <span>{props.t("Calendar")}</span>
+             <Link to="/SentimentAnalysis" className="waves-effect">
+                <i className="mdi mdi-view-dashboard"></i>
+                {/* <span className="badge rounded-pill bg-primary float-end">2</span> */}
+                <span>{props.t("SentimentAnalysis")}</span>
               </Link>
             </li> 
             <li>
@@ -280,7 +282,7 @@ const SidebarContent = props => {
               <Link to="/#" className="waves-effect">
                 <i className="mdi mdi-clipboard-outline"></i>
                 <span className="badge rounded-pill bg-success float-end">6</span>
-                <span>{props.t("Forms")}</span>
+                <span>{props.t("Analysis")}</span>
               </Link>
               <ul className="sub-menu">
                 <li>
@@ -343,7 +345,7 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="mdi mdi-format-list-bulleted-type"></i>
-                <span>{props.t("Tables")}</span>
+                <span>{props.t("Student")}</span>
               </Link>
               <ul className="sub-menu">
                 <li>
@@ -407,43 +409,41 @@ const SidebarContent = props => {
                 </li>
 
               </ul>
-            </li>  */}
+            </li> 
+            <li className="menu-title">Extras</li> */}
 
-            {/* <li className="menu-title">Extras</li>
-
-            <li>
-            //   <Link to="/#" className="has-arrow waves-effect">
-            //     <i className="mdi mdi-account-box"></i>
-            //     <span>{props.t("Authentication")}</span>
-            //   </Link>
-            //   <ul className="sub-menu">
-            //     <li>
-            //       <Link to="/pages-login">{props.t("Login")}</Link>
-            //     </li>
-            //     <li>
-            //       <Link to="/pages-register">{props.t("Register")}</Link>
-            //     </li>
-            //     <li>
-            //       <Link to="/page-recoverpw">
-            //         {props.t("Recover Password")}
-            //       </Link>
-            //     </li> */}
-               {/* <li>
-            //       <Link to="/auth-lock-screen">{props.t("Lock Screen")}</Link>
-            //     </li>
-            //   </ul>
-            // </li>
+            
 
             <li>
+            <Link to="/#" className="has-arrow waves-effect">
+                <i className="mdi mdi-account-box"></i>
+                <span>{props.t("Authentication")}</span>
+              </Link>
+              <ul className="sub-menu">
+               <li>
+                   <Link to="/pages-login">{props.t("Login")}</Link>
+                </li>
+                 <li>
+                   <Link to="/pages-register">{props.t("Register")}</Link>
+                 </li>
+                <li>
+                  <Link to="/page-recoverpw">
+                    {props.t("Recover Password")}
+                  </Link>
+                </li> 
+               </ul>
+            </li>
+
+            {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="mdi mdi-text-box-multiple-outline"></i>
                 <span>{props.t("Extra Pages")}</span>
-              // </Link>
+            </Link>
             <ul className="sub-menu">
-                <li>
+             <li>
               <Link to="/pages-timeline">{props.t("Timeline")}</Link>
-                </li>
-                <li>
+             </li>
+             <li>
               <Link to="/pages-invoice">{props.t("Invoice")}</Link>
                 </li>
                 <li>
@@ -459,7 +459,7 @@ const SidebarContent = props => {
                 <li>
               <Link to="/pages-500">{props.t("Error 500")}</Link>
                 </li>
-              </ul>
+              </ul> 
             {/* </li> */}
             {/* <li>
               <Link to="/#" className="has-arrow waves-effect">
@@ -485,7 +485,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li> */}
-          {/* </ul> */}
+           {/* </ul>  */}
         </div>
       </SimpleBar>
     </React.Fragment>

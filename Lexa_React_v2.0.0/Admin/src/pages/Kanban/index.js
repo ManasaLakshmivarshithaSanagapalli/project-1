@@ -634,164 +634,50 @@
 
 // export default connect(null, { setBreadcrumbItems })(Kanban)
 
-import React from "react";
-import { useState } from 'react';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import CompanyCard from "./Companycard";
 import './Company.css';
-import pic from "./AWS.png";
-import pic2 from "../Kanban/images/CISCO.png";
-import pic3 from "./images/dxclogo.png";
-import pic4 from "./images/flipkart-logo.png";
-import pic5 from "./images/PEGA LOGO.png";
-import pic6 from "./images/Netflix_2015_logo.svg.png";
-import pic7 from "./images/Pengwin_solutions.png";
-import pic8 from "./images/accenture.jpg";
-import pic9 from "./images/diwami.jpg";
-import AddCompanyForm from "./AddCompanyForm";
-import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
-const companies = [
-  {
-    id: 1,
-    CompanyName: "DXC",
-    description:["DXC Technology,formed by the merger of CSC and HPE's Enterprise Services, delivers global IT solutions for digital transformation, cloud services, cybersecurity, and consulting.","Operating in over 70 countries, DXC serves industries like healthcare, finance, manufacturing, and government with end-to-end IT services"],
-    packageoffered:"10",
-    logoUrl:pic3,
-    eligibilty:['Cse','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"400",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 2,
-    CompanyName: "AWS",
-    description:["","AWS (Amazon Web Services), established in 2006, leads the cloud computing industry with a vast array of services ranging from computing power to storage and AI","Offering end-to-end cloud solutions, AWS enables businesses to innovate and scale globally, leveraging robust infrastructure and advanced technologies."],
-    packageoffered:"33.3",
-    logoUrl:pic,
-    eligibilty:['Cse','IT','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"200",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 3,
-    CompanyName: "Cisco",
-    description:["Cisco Systems, a networking pioneer since 1984, delivers cutting-edge solutions across routers, switches, security, and collaboration ","Renowned for end-to-end networking prowess, Cisco offers comprehensive infrastructure and services empowering businesses worldwide."],
-    packageoffered:"15",
-    logoUrl:pic2,
-    eligibilty:['Cse','ECE','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Networking",
-    applied:"300",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 4,
-    CompanyName: "Flipkart",
-    description:["Flipkart, founded in 2007, is a pioneering force in e-commerce, transforming the retail landscape with innovative solutions and a vast product range","As a comprehensive online marketplace, Flipkart empowers customers with a seamless shopping experience, diverse offerings, and efficient delivery services, revolutionizing the way India shops"],
-    packageoffered:"12",
-    logoUrl:pic4,
-    eligibilty:['Cse','It','Aids','Aiml','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"600",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 5,
-    CompanyName: "Pega",
-    description:["Pega, established in 1983, leads in business process management (BPM) and customer engagement solutions, revolutionizing operations and customer experiences","Offering a comprehensive software suite, Pega enables organizations to automate processes, optimize workflows, and deliver personalized interactions"],
-    packageoffered:"10",
-    logoUrl:pic5,
-    eligibilty:['Cse','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"400",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 6,
-    CompanyName: "Netflix",
-    description:["Netflix, established in 1997, revolutionized entertainment by pioneering online streaming, offering a vast library of movies, series, and original conten"," a leading global streaming service, Netflix provides subscribers with personalized viewing experiences, convenient access to a diverse range of content, and groundbreaking original productions, reshaping how the world consumes entertainment"],
-    packageoffered:"12",
-    logoUrl:pic6,
-    eligibilty:['Cse','It','Aiml','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"100",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 7,
-    CompanyName: "divami",
-    description:["Divami specializes in humanizing technology to help digital businesses grow. They offer a mix of design strategy and platform engineering expertise, and have been recognized for their work on UX UI design","The company has been offering these services since 2008, and has clients across 13 countries and six continents"],
-    packageoffered:"6",
-    logoUrl:pic9,
-    eligibilty:['Cse','It','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Development",
-    applied:"600",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 8,
-    CompanyName: "Accenture",
-    description:["1.Accenture, established in 1989, stands as a global leader in consulting, technology services, and outsourcing, driving innovation and digital transformation across industries.","With a comprehensive suite of services spanning strategy, consulting, digital, technology, and operations, Accenture helps clients navigate complex challenges."],
-    packageoffered:"4.5",
-    logoUrl:pic8,
-    eligibilty:['Cse','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"400",
-    date:"12-12-2132",
-    
-  },
-  {
-    id: 9,
-    CompanyName: "Pengwin Solutions",
-    description:["Pengwin Solutions","Operating in over 70 countries, DXC serves industries like healthcare, finance, manufacturing, and government with end-to-end IT services","2.The company also offers web development services, such as crafting user-friendly websites"],
-    packageoffered:"10",
-    logoUrl:pic7,
-    eligibilty:['Cse','Should be > 80%','No Backlog History'],
-    per:"80",
-    role:"Testing",
-    applied:"400",
-    date:"12-12-2132",
-  }
-];
+import axios from 'axios';
 
 const Kanban = () => {
-// const toggleForm = () => {
-//   <AddCompanyForm/>
-// }
+  const [companies, setCompanies] = useState([]);
+  const navigate = useNavigate();
+
+  const handleAddCompanyClick = () => {
+    navigate('/addcompany');
+  };
+
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/getData');
+        setCompanies(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCompanies();
+  }, []);
+
   return (
     <div className="Card_Division">
-      {
-      companies.map((company) => {
-        return(
-       <CompanyCard
-        logoUrl = {company.logoUrl}
-        CompanyName = {company.CompanyName}
-        description = {company.description}
-        packageoffered = {company.packageoffered}
-        applied = {company.applied}
-        eligibilty = {company.eligibilty}
-        role = {company.role}
-        date = {company.date}
-      />)})
-}
-  <Link to='/addcompany' className="btn btn-success" id="add">Add</Link> 
+      {companies.map((company) => (
+        <CompanyCard
+          key={company.id}
+        //   logoUrl={company.logoUrl}
+          CompanyName={company.CompanyName}
+          description={company.description}
+          packageoffered={company.packageoffered}
+          applied={company.applied}
+          eligibility={company.eligibility}
+          role={company.role}
+        />
+      ))}
+      <button className="btn btn-success" id="add" onClick={handleAddCompanyClick}>Add</button>
     </div>
+  );
+};
 
-  )
-}
 export default Kanban;

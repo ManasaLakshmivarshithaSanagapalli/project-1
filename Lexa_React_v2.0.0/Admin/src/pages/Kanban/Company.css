@@ -1,118 +1,73 @@
-.Card_Division{
+.Card_Division {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px;
+  background-color: #f9f9f9;
 }
-.Card_Outline{
-  width:350px;
-  display: flex;
-  flex-direction: column;
-  /* border:1px solid black; */
-  padding:15px;
-  margin-bottom:15px;
-  border-radius: 12px;
-  padding-bottom:30px;
+
+.company-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 350px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.company-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.company-card h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 700;
+}
+
+.company-card img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.company-card:hover img {
+  transform: scale(1.1);
+}
+
+.company-card p {
+  margin: 15px 0;
+  color: #666;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+#add {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 20px 0;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 }
-.Card_Outline:hover{
-  transform: scale(1.01);
-  box-shadow: none;
-  border:1px solid rgb(124, 104, 104)
-}
-.Company_logo_division{
-  width:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.Company_logo_division img{
-  width:200px;
-  height:100px;
-}
-.Company_name{
-  width:100%;
-  font-weight: 900;
-  font-size: 32px;
-  display: flex;
-  justify-content: center;
-}
-.Description_heading{
-  width:100%;
-  font-weight: 600;
-  font-size: 17px;
-  text-decoration: underline;
-}
-.Description_points{
-  width:100%;
-}
-li{
-  text-align: justify;
-}
-.Package_heading{
-  width:100%;
-  font-weight: 600;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  text-decoration: underline;
 
+#add:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
-.Package_applied_division{
-  display: flex;
-  width:100%;
-  justify-content: space-around;
-  /* border:1px solid black; */
-}
-.Package_division{
-  width:50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-items: center;
-}
-.Eligibility_Division{
-  width:100%;
-}
-.Eligibility_Heading{
-  width:100%;
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: underline;
-
-}
-.Role_Division{
-  width:100%;
-}
- #add
-{
-  /* border:1px solid black; */
-  display:block;
-  width:200px;
-
-}
-.My_division{
-  background-color:#2A3142 !important;
-}
-.CardText,.CardHeader{
-  color:white !important;
-}
-/* #apexchart
-{
-  height:400px;
-  width:100%;
-  border:1px solid red;
-}
-#online
-{
-  height:70px;
-  width:100%;
-  border:1px solid black;
-}
-#online h2{
-  margin:15px;
-} */
-/* .donutchartt{
-  display: flex;
-  align-items:flex-start;
-} */
